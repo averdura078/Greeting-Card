@@ -38,6 +38,7 @@
             this.Name = "Form1";
             this.Text = "Valentines Day Card";
             this.Shown += new System.EventHandler(this.Form1_Shown);
+            this.Click += new System.EventHandler(this.Form1_Click);
             this.ResumeLayout(false);
 
         }

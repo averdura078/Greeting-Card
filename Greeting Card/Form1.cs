@@ -41,5 +41,10 @@ namespace Greeting_Card
             //draw image
             
         }
+
+        private void Form1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -36,6 +36,13 @@ namespace Greeting_Card
         SolidBrush whiteBrush = new SolidBrush(Color.White);
         SolidBrush blueBrush = new SolidBrush(Color.DarkBlue);
 
+        int counter = 1;
+        int x = 10;
+        int y = 10;
+        int circleColor = 1;
+
+        Random random = new Random();
+
         public Form1()
         {
             InitializeComponent();
@@ -65,12 +72,9 @@ namespace Greeting_Card
 
         private void Form1_Click(object sender, EventArgs e)
         {
-            sp.Play();
-
             //make font
             Font smallFont = new Font("Impact", 50, FontStyle.Bold);
             SolidBrush yellowBrush = new SolidBrush(Color.Yellow);
-
             //move 4
             for (int i = 1; i <= 50; i++)
             {
@@ -81,28 +85,31 @@ namespace Greeting_Card
                 g.DrawString("4", smallFont, yellowBrush, 206 + i * 3, 275);
                 Thread.Sleep(5);
             }
-
-            //flash disco
-            for (int i = 1; i <= 10; i++)
+            //create 5
+            for (int i = 1; i <= 50; i++)
             {
-                OriginalDisco();
-                Thread.Sleep(350);
-                Disco2();
-                Thread.Sleep(350);
+                //cover old 4 with rectangle
+                g.FillRectangle(blueBrush, 217, 286, 150, 58);
+
+                //draw new 4 i*3 pixels over
+                g.DrawString("5", smallFont, yellowBrush, 356 - i * 3, 275);
+                Thread.Sleep(5);
             }
 
+            //sound
+            sp.Play();
 
+            //flash disco
+            for (int i = 1; i <= 20; i++)
+            {
+                OriginalDisco();
+                Thread.Sleep(90);
+                Disco2();
+                Thread.Sleep(90);
+            }
 
-            //background colours flashing
-            //for (int i = 1; i <= 15; i++)
-            //{
-            //g.Clear(Color.Red);
-            //Thread.Sleep(200);
-            //g.Clear(Color.Yellow);
-            //Thread.Sleep(200);
-            //g.Clear(Color.Blue);
-            //Thread.Sleep(200);
-            //}
+            timer.Enabled = true;
+
         }
 
         public void OriginalDisco()
@@ -305,5 +312,55 @@ namespace Greeting_Card
             g.DrawString("Happy New Year!", bigFont, yellowBrush, 32, 20);
         }
 
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            //add 1 to counter
+            counter++;
+
+            //cover old circle
+            g.FillEllipse(blueBrush, x, y, 20, 20);
+
+            if (counter > 0 && counter < 62)
+            {
+                if (y <= 150)
+                {
+                    y += 8;
+                }
+                else if ()
+                {
+                    x += 8;
+                }
+                else if ()
+                {
+                    y -= 8;
+                }
+                else if ()
+                {
+                    x -= 8;
+                }
+
+                CircleColor();
+
+            }
+        }
+
+        public void CircleColor()
+        {
+            if (circleColor == 1)
+            {
+                g.FillEllipse(orangeBrush, x, y, 20, 20);
+                circleColor++;
+            }
+            else if (circleColor == 2)
+            {
+                g.FillEllipse(pinkBrush, x, y, 20, 20);
+                circleColor++;
+            }
+            else
+            {
+                g.FillEllipse(purpleBrush, x, y, 20, 20);
+                circleColor = 1;
+            }
+        }
     }
 }

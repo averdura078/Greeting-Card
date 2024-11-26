@@ -320,21 +320,21 @@ namespace Greeting_Card
             //cover old circle
             g.FillEllipse(blueBrush, x, y, 20, 20);
 
-            if (counter > 0 && counter < 62)
+            if (counter > 0 && counter < 167)
             {
-                if (y <= 150)
+                if (y <= 340 && x < 15)
                 {
                     y += 8;
                 }
-                else if ()
+                else if (y > 340 && x < 325)
                 {
                     x += 8;
                 }
-                else if ()
+                else if (x >= 320 && y >= 10)
                 {
                     y -= 8;
                 }
-                else if ()
+                else if (x > 10 && y <= 15)
                 {
                     x -= 8;
                 }

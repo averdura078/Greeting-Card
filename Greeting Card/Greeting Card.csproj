@@ -83,5 +83,8 @@
   <ItemGroup>
     <None Include="rick2.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disco-ball.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -100,16 +100,15 @@ namespace Greeting_Card
             sp.Play();
 
             //flash disco
-            for (int i = 1; i <= 20; i++)
+            for (int i = 1; i <= 15; i++)
             {
                 OriginalDisco();
-                Thread.Sleep(90);
+                Thread.Sleep(250);
                 Disco2();
-                Thread.Sleep(90);
+                Thread.Sleep(250);
             }
 
             timer.Enabled = true;
-
         }
 
         public void OriginalDisco()
@@ -318,9 +317,10 @@ namespace Greeting_Card
             counter++;
 
             //cover old circle
-            g.FillEllipse(blueBrush, x, y, 20, 20);
+            //g.FillEllipse(blueBrush, x, y, 20, 20);
 
-            if (counter > 0 && counter < 167)
+            //new circle
+            if (counter > 0 && counter < 169)
             {
                 if (y <= 340 && x < 15)
                 {
